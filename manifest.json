@@ -1,0 +1,25 @@
+{
+
+  "manifest_version": 2,
+  "name": "MoreVerbatim",
+  "version": "1.0",
+
+  "description": "Adds double quotes to all Google search terms if you include 'v' in the search",
+
+  "developer": {
+    "name": "Thomas Karpiniec",
+    "url": "http://thomask.sdf.org/"
+  },
+
+  "icons": {
+    "48": "icons/icon.png",
+    "96": "icons/icon@2x.png"
+  },
+
+  "permissions": ["webNavigation"],
+
+  "background": {
+    "scripts": ["moreverbatim.js"]
+  }
+
+}
