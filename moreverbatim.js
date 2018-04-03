@@ -2,8 +2,12 @@ const filter =
 {
     url:
     [
-        // close enough, there are lots of countries and we'll do nothing if there's no query string
-        { hostContains: "www.google" }
+        // Avoid listing all the ccTLDs
+        // We can afford to be loose with this filter because we check for a specific flag inside the "q" param
+        { hostContains: "www.google" },
+        // DuckDuckGo's !g (and possibly HTTPS Everywhere?) send you here
+        // https://encrypted.google.com/ says it will redirect to the main site after 30 April 2018
+        { hostContains: "encrypted.google" }
     ]
 };
 
