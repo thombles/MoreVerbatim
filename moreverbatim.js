@@ -15,8 +15,8 @@ const filter =
 // + has already been converted to space
 function processValue(qString)
 {
-    var matches = qString.match(/("[^"]+"|[^\s]+)/g); // Keep quoted terms together
-    var removeTrigger = matches.filter((t) => { return t != "v" });
+    const matches = qString.match(/("[^"]+"|[^\s]+)/g); // Keep quoted terms together
+    const removeTrigger = matches.filter((t) => { return t != "v" });
     if (removeTrigger.length == matches.length)
     {
         // User did not request MoreVerbatim by specifying "v" somewhere
@@ -24,7 +24,7 @@ function processValue(qString)
     }
     
     // Now make sure they all have quotes on both sides
-    var newTerms = removeTrigger.map((t) =>
+    const newTerms = removeTrigger.map((t) =>
     {
         // Matching implies we have at least one char here
         if (t[0] != '"')
@@ -64,7 +64,7 @@ function verbatimQueryString(details)
     const vars = queryString.split('&');
     for (let i = 0; i < vars.length; i++)
     {
-        var pair = vars[i].split('=');
+        const pair = vars[i].split('=');
         if (pair.length != 2)
         {
             // We are not on a google page
@@ -99,7 +99,7 @@ function verbatimQueryString(details)
     }
 
     // Now, rebuild the URL
-    var newUrl = page + "?" + params.map((p) => {
+    const newUrl = page + "?" + params.map((p) => {
             return encodeURIComponent(p.key) + "=" + encodeURIComponent(p.value)
         }).join("&") + (anchor ? "#" + anchor : "");
 
